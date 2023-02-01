@@ -1,4 +1,4 @@
-FROM mongo-express:lastest
+FROM mongo-express:0.54.0
 
 
 WORKDIR /app
