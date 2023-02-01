@@ -1,11 +1,9 @@
-version: "1.8"
+version: "2.0"
 services:
   db:
     image: mongo:4.4.4
     restart: always
     container_name: db_container
-    volumes:
-      - ./data/db:/data/db
     ports:
       - "27017:27017"
   web:
@@ -13,5 +11,5 @@ services:
     container_name: web_container
     ports:
       - "80:80"
-      
+
       
