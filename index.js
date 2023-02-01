@@ -7,8 +7,8 @@ const AuthMiddleware = require('./middleware/AuthMiddleware');
 
 
 const app = express();
-app.listen(3000, function(){
-    console.log('localhost:3000')
+app.listen(80, function(){
+    console.log('localhost:80')
 })
 
 // mongodb connection

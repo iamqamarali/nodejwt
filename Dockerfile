@@ -1,4 +1,4 @@
-FROM mongo-express:0.54.0
+FROM node:17.0.1-alpine3.14
 
 
 WORKDIR /app
