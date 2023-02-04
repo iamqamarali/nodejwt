@@ -7,12 +7,12 @@ const AuthMiddleware = require('./middleware/AuthMiddleware');
 
 
 const app = express();
-app.listen(80, function(){
-    console.log('localhost:80')
+app.listen(3000, function(){
+    console.log('localhost:3000')
 })
 
 // mongodb connection
-const url = 'mongodb://localhost:27017/node-jwt?directConnection=true'
+const url = 'mongodb://mongo:27017/node-jwt?directConnection=true'
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,

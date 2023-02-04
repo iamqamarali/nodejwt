@@ -1,15 +1,26 @@
 version: "2.0"
 services:
-  db:
+  mongo:
     image: mongo:4.4.4
     restart: always
     container_name: db_container
+    volume:
+      - ./data/db:/data/db
     ports:
       - "27017:27017"
+    links:
+      - web
+
+      
   web:
     build: .
     container_name: web_container
     ports:
-      - "80:80"
+      - "80:3000"
+    links:
+      - mongo
+    volumes:
+      - .:/code
 
-      
+
+
