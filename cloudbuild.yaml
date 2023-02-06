@@ -8,4 +8,4 @@ steps:
     args: ['push','gcr.io/fiery-tribute-240020/node-jwt:$SHORT_SHA']
 
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run',  'deploy',  '--region=us-central1', '--image=gcr.io/fiery-tribute-240020/node-jwt:$SHORT_SHA' , ]
+    args: ['run',  'deploy', 'nodejwt' ,'--region=us-central1', '--image=gcr.io/fiery-tribute-240020/node-jwt:$SHORT_SHA' , ]
