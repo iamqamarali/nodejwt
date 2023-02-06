@@ -7,8 +7,9 @@ const AuthMiddleware = require('./middleware/AuthMiddleware');
 
 
 const app = express();
-app.listen(3000, function(){
-    console.log('localhost:3000')
+const port = process.env.PORT || 3000;
+app.listen(port, function(){
+    console.log('localhost:'+port)
 })
 
 // mongodb connection
@@ -32,15 +33,14 @@ app.use(session({
     secret: 'secret-key',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60000 }
-
-    
+    cookie: { maxAge: 60000 }    
 }))
+
 
 // routes
 const authRouter = require('./routes/auth')
 const globalRouter = require('./routes/global')
 
 app.use(authRouter)
-app.use(AuthMiddleware, globalRouter);
+app.use(globalRouter);
 

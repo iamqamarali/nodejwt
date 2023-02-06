@@ -9,6 +9,7 @@ const AuthMiddleware = require('../middleware/AuthMiddleware')
 router.get('/', (req, res)=>{
     res.sendFile('home.html', {root: path.join(__dirname, '../views/')})
 })
+
 router.get('/users',[AuthMiddleware],  function(req, res){
     User.find()
         .then((data)=>{

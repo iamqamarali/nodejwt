@@ -1,26 +1,14 @@
-version: "2.0"
+version: '3'
+
 services:
-  mongo:
-    image: mongo:4.4.4
+  app:
+    container_name: node_app
     restart: always
-    container_name: db_container
-    volume:
-      - ./data/db:/data/db
-    ports:
-      - "27017:27017"
-    links:
-      - web
-
-      
-  web:
     build: .
-    container_name: web_container
     ports:
-      - "80:3000"
-    links:
-      - mongo
-    volumes:
-      - .:/code
-
-
-
+      - '3000:3000'
+  mongo:
+    container_name: mongo_for_node_app
+    image: mongo
+    ports:
+      - '27017:27017'
