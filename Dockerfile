@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -9,9 +9,12 @@ COPY . .
 # Install app dependencies
 RUN npm install
 
+RUN npm install nodemon -g
+
+
 # expose port 
 
 EXPOSE 3000
 
 # start app
-CMD ["node", "index.js"]
+CMD ["nodemon", "index.js"]

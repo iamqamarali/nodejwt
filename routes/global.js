@@ -20,7 +20,7 @@ router.get('/users',[AuthMiddleware],  function(req, res){
 })
 
 
-router.get('/questions', AuthMiddleware, (req, res)=>{
+router.get('/questions', (req, res)=>{
     if(req.session.authenticated){
         res.write('you are authenticated by session too')
     }else{
@@ -33,6 +33,8 @@ router.get('/questions', AuthMiddleware, (req, res)=>{
             return questions.json()
         }).then((data)=>{
 
+            
+
 
             res.write(JSON.stringify(data))
             res.write("         -------------------------------------   ")
@@ -44,7 +46,7 @@ router.get('/questions', AuthMiddleware, (req, res)=>{
 })
 
 
-router.get('/posts', async (req, res)=>{  
+router.get('/posts', AuthMiddleware, async (req, res)=>{  
     let posts = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10")
     res.send(posts)
 })
