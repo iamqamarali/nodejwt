@@ -1,0 +1,8 @@
+
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/fiery-tribute-240020/node-jwt:$SHORT_SHA', '.']
+
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push','gcr.io/fiery-tribute-240020/node-jwt:$SHORT_SHA']
